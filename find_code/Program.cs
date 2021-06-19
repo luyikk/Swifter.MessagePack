@@ -30,9 +30,9 @@ namespace find_code
             }
 
             {
-                // var b = Swifter.MessagePack.MessagePackFormatter.SerializeObject((true, "1 Ok"));
+                //var b = Swifter.MessagePack.MessagePackFormatter.SerializeObject((true, "1 Ok"));
                 var b = new byte[] { 146, 195, 164, 49, 32, 79, 107 };
-                var d2 = Swifter.MessagePack.MessagePackFormatter.DeserializeObject(new ArraySegment<byte>(b, 0, b.Length), typeof((bool, string)));
+                var d2 = Swifter.MessagePack.MessagePackFormatter.DeserializeObject(b, typeof((bool, string)));
             }
             {
                 var b = Swifter.MessagePack.MessagePackFormatter.SerializeObject(new Foo { Name = "1", Age = 2 });
@@ -41,13 +41,16 @@ namespace find_code
                 var d2 = Swifter.MessagePack.MessagePackFormatter.DeserializeObject<Foo>(b2);
             }
             {
-                var b = Swifter.Json.JsonFormatter.SerializeObject((1, "123"));
+                var b = Swifter.Json.JsonFormatter.SerializeObject((true, "123"));
                 var d2 = Swifter.Json.JsonFormatter.DeserializeObject<(bool, string)>(b);
             }
             {
                 var b = new byte[] { 148, 195, 162, 111, 107, 1, 192 };
                 var d2 = Swifter.MessagePack.MessagePackFormatter.DeserializeObject<LogOnResult>(b);
+                
             }
+
+            Console.WriteLine("ok");
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Swifter.RW
     {
         public ValueTuple<T1> ReadValue(IValueReader valueReader)
         {
-            System.Diagnostics.Debug.Assert(valueReader.TryReadArrayHead() == 1);
+            valueReader.TryReadArrayHead();
             return new ValueTuple<T1>(ValueInterface<T1>.ReadValue(valueReader));
         }
 
@@ -43,7 +43,7 @@ namespace Swifter.RW
 
         public (T1, T2) ReadValue(IValueReader valueReader)
         {
-            System.Diagnostics.Debug.Assert(valueReader.TryReadArrayHead() == 2);
+            valueReader.TryReadArrayHead();
             return (
                 ValueInterface<T1>.ReadValue(valueReader),
                 ValueInterface<T2>.ReadValue(valueReader)
@@ -62,7 +62,7 @@ namespace Swifter.RW
     {
         public (T1, T2, T3) ReadValue(IValueReader valueReader)
         {
-            System.Diagnostics.Debug.Assert(valueReader.TryReadArrayHead() == 3);
+            valueReader.TryReadArrayHead();
             return (
                 ValueInterface<T1>.ReadValue(valueReader),
                 ValueInterface<T2>.ReadValue(valueReader),
@@ -83,7 +83,7 @@ namespace Swifter.RW
     {
         public (T1, T2, T3, T4) ReadValue(IValueReader valueReader)
         {
-            System.Diagnostics.Debug.Assert(valueReader.TryReadArrayHead() == 4);
+            valueReader.TryReadArrayHead();
             return (
                 ValueInterface<T1>.ReadValue(valueReader),
                 ValueInterface<T2>.ReadValue(valueReader),
@@ -106,7 +106,7 @@ namespace Swifter.RW
     {
         public (T1, T2, T3, T4, T5) ReadValue(IValueReader valueReader)
         {
-            System.Diagnostics.Debug.Assert(valueReader.TryReadArrayHead() == 5);
+            valueReader.TryReadArrayHead();
             return (
                 ValueInterface<T1>.ReadValue(valueReader),
                 ValueInterface<T2>.ReadValue(valueReader),
@@ -131,7 +131,7 @@ namespace Swifter.RW
     {
         public (T1, T2, T3, T4, T5, T6) ReadValue(IValueReader valueReader)
         {
-            System.Diagnostics.Debug.Assert(valueReader.TryReadArrayHead() == 6);
+            valueReader.TryReadArrayHead();
             return (
                 ValueInterface<T1>.ReadValue(valueReader),
                 ValueInterface<T2>.ReadValue(valueReader),
@@ -158,7 +158,7 @@ namespace Swifter.RW
     {
         public (T1, T2, T3, T4, T5, T6, T7) ReadValue(IValueReader valueReader)
         {
-            System.Diagnostics.Debug.Assert(valueReader.TryReadArrayHead() == 7);
+            valueReader.TryReadArrayHead();
             return (
                 ValueInterface<T1>.ReadValue(valueReader),
                 ValueInterface<T2>.ReadValue(valueReader),
@@ -187,7 +187,7 @@ namespace Swifter.RW
     {
         public ValueTuple<T1, T2, T3, T4, T5, T6, T7, TRest> ReadValue(IValueReader valueReader)
         {
-            System.Diagnostics.Debug.Assert(valueReader.TryReadArrayHead() == 8);
+            valueReader.TryReadArrayHead();
             return new ValueTuple<T1, T2, T3, T4, T5, T6, T7, TRest>(
                 ValueInterface<T1>.ReadValue(valueReader),
                 ValueInterface<T2>.ReadValue(valueReader),
