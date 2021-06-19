@@ -158,5 +158,15 @@ namespace Swifter.RW
         TimeSpan IValueReader<TimeSpan>.ReadValue() { type = typeof(TimeSpan); return default; }
 
         void IValueWriter<TimeSpan>.WriteValue(TimeSpan value) { type = typeof(TimeSpan); }
+
+        public void WriteArrayHead(int length)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int TryReadArrayHead()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

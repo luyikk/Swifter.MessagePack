@@ -105,6 +105,12 @@ namespace Swifter.RW
         void WriteObject(IDataReader<string> dataReader);
 
         /// <summary>
+        /// 写入一个数组的头
+        /// </summary>
+        /// <param name="length"></param>
+        void WriteArrayHead(int length);
+
+        /// <summary>
         /// 写入一个数组结构的值
         /// </summary>
         /// <param name="dataReader">数组结构读取器</param>

@@ -401,5 +401,23 @@ namespace Swifter.Reflection
         {
             WriteValue(value);
         }
+
+        /// <summary>
+        /// 写入数组的头
+        /// </summary>
+        /// <param name="length"></param>
+        public void WriteArrayHead(int length)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// 读取数组长度
+        /// </summary>
+        /// <returns></returns>
+        public int TryReadArrayHead()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -236,6 +236,16 @@ namespace Swifter.RW
         }
 
         /// <summary>
+        /// 读取数组的头
+        /// </summary>
+        /// <returns></returns>
+        public int TryReadArrayHead()
+        {
+            dataRW.OnReadValue(key, valueCopyer);
+            return valueCopyer.TryReadArrayHead();
+        }
+
+        /// <summary>
         /// 写入一个数组结构数据。
         /// </summary>
         /// <param name="dataReader">数据读取器</param>
@@ -425,6 +435,17 @@ namespace Swifter.RW
             valueCopyer.WriteEnum(value);
             dataRW.OnWriteValue(key, valueCopyer);
         }
+
+        /// <summary>
+        /// 写入数组的头
+        /// </summary>
+        /// <param name="length"></param>
+        public void WriteArrayHead(int length)
+        {
+            valueCopyer.WriteArrayHead(length);
+            dataRW.OnWriteValue(key, valueCopyer);
+        }
+
     }
 
     /// <summary>
@@ -1587,6 +1608,45 @@ namespace Swifter.RW
             Underlying.As<long, T>(ref this.value.Int64) = value;
         }
 
+        /// <summary>
+        /// 写入数组的头
+        /// </summary>
+        /// <param name="length"></param>
+        public void WriteArrayHead(int length)
+        {
+            code = ValueTypeCodes.Int32;
+
+            this.value.Int32 = length;
+        }
+
+        /// <summary>
+        /// 读取数组的头
+        /// </summary>
+        /// <returns></returns>
+        public int TryReadArrayHead()
+        {
+            return code switch
+            {
+                ValueTypeCodes.Null => default,
+                ValueTypeCodes.Boolean => Convert.ToInt32(value.Byte),
+                ValueTypeCodes.SByte => Convert.ToInt32(value.SByte),
+                ValueTypeCodes.Int16 => Convert.ToInt32(value.Int16),
+                ValueTypeCodes.Int32 => Convert.ToInt32(value.Int32),
+                ValueTypeCodes.Int64 => Convert.ToInt32(value.Int64),
+                ValueTypeCodes.Byte => Convert.ToInt32(value.Byte),
+                ValueTypeCodes.UInt16 => Convert.ToInt32(value.UInt16),
+                ValueTypeCodes.UInt32 => Convert.ToInt32(value.UInt32),
+                ValueTypeCodes.UInt64 => Convert.ToInt32(value.UInt64),
+                ValueTypeCodes.Single => Convert.ToInt32(value.Single),
+                ValueTypeCodes.Double => Convert.ToInt32(value.Double),
+                ValueTypeCodes.Decimal => Convert.ToInt32(value.Decimal),
+                ValueTypeCodes.Char => Convert.ToInt32(value.Char),
+                ValueTypeCodes.DateTime => Convert.ToInt32(value.DateTime),
+                ValueTypeCodes.String => Convert.ToInt32(value.String),
+                ValueTypeCodes.Direct => Convert.ToInt32(value.Object),
+                _ => Convert.ToInt32(value.DataReader.Content)
+            };
+        }
 
         sealed class ValueInterface : IValueInterface<ValueCopyer>
         {

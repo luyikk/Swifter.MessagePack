@@ -39,11 +39,12 @@ namespace Swifter.MessagePack
         /// 写入 MessagePack 对象开始标识符。
         /// </summary>
         void WriteMapHead(int size);
+        
 
         /// <summary>
         /// 写入 MessagePack 数组开始标识符。
         /// </summary>
-        void WriteArrayHead(int size);
+        new void WriteArrayHead(int size);
 
         /// <summary>
         /// 将当前内容转换为字节数组。

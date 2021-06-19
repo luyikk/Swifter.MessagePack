@@ -228,5 +228,15 @@ namespace Swifter.RW
         {
             return dataWriter.ToString() + "[\"" + key + "\"]";
         }
+
+        /// <summary>
+        /// 写入数组的头
+        /// </summary>
+        /// <param name="length"></param>
+        public void WriteArrayHead(int length)
+        {
+            valueCopyer.WriteArrayHead(length);
+            dataWriter.OnWriteValue(key, valueCopyer);
+        }
     }
 }

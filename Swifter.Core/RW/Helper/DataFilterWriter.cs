@@ -254,5 +254,16 @@ namespace Swifter.RW
         {
             DataWriter.OnWriteAll(dataReader);
         }
+
+        /// <summary>
+        ///  写入数组的头
+        /// </summary>
+        /// <param name="length"></param>
+        public void WriteArrayHead(int length)
+        {
+            ValueInfo.ValueCopyer.WriteArrayHead(length);
+
+            OnFilter();
+        }
     }
 }

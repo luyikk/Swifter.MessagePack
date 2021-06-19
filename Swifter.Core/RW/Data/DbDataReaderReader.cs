@@ -213,6 +213,9 @@ namespace Swifter.RW
             public TValue? ReadNullable<TValue>() where TValue : struct => XConvert.FromObject<TValue?>(DirectRead());
 
             public TValue ReadEnum<TValue>() where TValue : struct, Enum => XConvert.FromObject<TValue>(DirectRead());
+
+            public int TryReadArrayHead() => Convert.ToInt32(DirectRead());
+
         }
     }
 }

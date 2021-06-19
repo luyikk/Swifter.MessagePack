@@ -51,5 +51,8 @@ namespace Swifter.RW
         TimeSpan IValueReader<TimeSpan>.ReadValue() => default;
 
         DateTimeOffset IValueReader<DateTimeOffset>.ReadValue() => default;
+
+        public int TryReadArrayHead()=>default;
+        
     }
 }

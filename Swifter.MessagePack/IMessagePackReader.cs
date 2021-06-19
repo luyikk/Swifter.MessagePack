@@ -72,6 +72,6 @@ namespace Swifter.MessagePack
         /// 尝试读取数组的开始标识。
         /// </summary>
         /// <returns>返回当前 MessagePack 标识是否为数组开始</returns>
-        int TryReadArrayHead();
+        new int TryReadArrayHead();
     }
 }

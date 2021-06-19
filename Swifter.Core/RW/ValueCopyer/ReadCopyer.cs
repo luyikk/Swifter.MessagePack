@@ -228,5 +228,15 @@ namespace Swifter.RW
             dataReader.OnReadValue(key, valueCopyer);
             return valueCopyer.ReadEnum<T>();
         }
+
+        /// <summary>
+        /// 读取数组的头
+        /// </summary>
+        /// <returns></returns>
+        public int TryReadArrayHead()
+        {
+            dataReader.OnReadValue(key, valueCopyer);
+            return valueCopyer.TryReadArrayHead();
+        }
     }
 }
