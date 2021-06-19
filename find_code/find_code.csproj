@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Swifter.Json\Swifter.Json.csproj" />
     <ProjectReference Include="..\Swifter.MessagePack\Swifter.MessagePack.csproj" />
   </ItemGroup>
 

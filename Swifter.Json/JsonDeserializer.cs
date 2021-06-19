@@ -2401,5 +2401,10 @@ namespace Swifter.Json
             // TODO: 
             throw new NotSupportedException();
         }
+
+        public int TryReadArrayHead()
+        {
+            return 0;
+        }
     }
 }

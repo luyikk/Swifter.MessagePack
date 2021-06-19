@@ -159,5 +159,10 @@ namespace Swifter.Json
         public void DirectWrite(object value)
         {
         }
+
+        public void WriteArrayHead(int length)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

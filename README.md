@@ -1,3 +1,19 @@
+
+# rmp.Swifter.MessagePack
+## 为了和 rmp 相兼容,修改了一些标准
+
+
+
+
+
+
+
+
+
+
+
+
+#下面是Swifter.MessagePack 的README.MD
 # Swifter.MessagePack
 #### A powerful, easy-to-use and fastest msgpack serializer and deserializer on .Net platforms.
 

@@ -15,6 +15,12 @@ namespace find_code
             public int Age { get; set; }
         }
 
+        public class LogOnResult
+        {
+            public bool Success { get; set; }
+            public string Msg { get; set; }
+        }
+
 
         static void Main(string[] args)
         {
@@ -24,19 +30,23 @@ namespace find_code
             }
 
             {
-                var b = Swifter.MessagePack.MessagePackFormatter.SerializeObject((true, "ok",1,(object)null));
-                var d2 = Swifter.MessagePack.MessagePackFormatter.DeserializeObject<(bool, string,int, object)>(b);
+                // var b = Swifter.MessagePack.MessagePackFormatter.SerializeObject((true, "1 Ok"));
+                var b = new byte[] { 146, 195, 164, 49, 32, 79, 107 };
+                var d2 = Swifter.MessagePack.MessagePackFormatter.DeserializeObject(new ArraySegment<byte>(b, 0, b.Length), typeof((bool, string)));
             }
             {
-                var b = Swifter.MessagePack.MessagePackFormatter.SerializeObject(new Foo { Name="1",Age=2});
-                var array_str = "";
-                foreach (var item in b)
-                {
-                    array_str += item;
-                    array_str += ",";
-                }
-                var c = new byte[] { 148, 195, 162, 111, 107, 1, 192 };
-                var d2 = Swifter.MessagePack.MessagePackFormatter.DeserializeObject<Foo>(c);
+                var b = Swifter.MessagePack.MessagePackFormatter.SerializeObject(new Foo { Name = "1", Age = 2 });
+                var d = Swifter.MessagePack.MessagePackFormatter.DeserializeObject<Foo>(b);
+                var b2 = new byte[] { 146, 161, 49, 2 };
+                var d2 = Swifter.MessagePack.MessagePackFormatter.DeserializeObject<Foo>(b2);
+            }
+            {
+                var b = Swifter.Json.JsonFormatter.SerializeObject((1, "123"));
+                var d2 = Swifter.Json.JsonFormatter.DeserializeObject<(bool, string)>(b);
+            }
+            {
+                var b = new byte[] { 148, 195, 162, 111, 107, 1, 192 };
+                var d2 = Swifter.MessagePack.MessagePackFormatter.DeserializeObject<LogOnResult>(b);
             }
         }
     }

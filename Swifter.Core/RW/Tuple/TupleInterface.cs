@@ -51,7 +51,7 @@ namespace Swifter.RW
         }
 
         public void WriteValue(IValueWriter valueWriter, (T1, T2) value)
-        {
+        {           
             valueWriter.WriteArrayHead(2);
             ValueInterface.WriteValue(valueWriter, value.Item1);
             ValueInterface.WriteValue(valueWriter, value.Item2);

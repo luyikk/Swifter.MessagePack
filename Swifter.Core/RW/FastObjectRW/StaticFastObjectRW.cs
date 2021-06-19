@@ -474,13 +474,15 @@ namespace Swifter.RW
                     fields.Sort((x, y) =>
                     {
                         var com = x.Order.CompareTo(y.Order);
+                        return com;
+                        //if (com != 0)
+                        //{
+                        //    return com;
+                        //}
 
-                        if (com != 0)
-                        {
-                            return com;
-                        }
-
-                        return x.Name.CompareTo(y.Name);
+                        //服了 这里名字排序会导致ArrayObj 解析格式错误
+                        //return x.Name.CompareTo(y.Name);
+                        //return 0;
                     });
 
                     if (attributes.Length != 0)

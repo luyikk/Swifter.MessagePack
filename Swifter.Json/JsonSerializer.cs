@@ -1650,5 +1650,10 @@ namespace Swifter.Json
         void IValueWriter<List<Guid>>.WriteValue(List<Guid> value) => WriteList(value);
 
         void IValueWriter<List<string>>.WriteValue(List<string> value) => WriteList(value);
+
+        public void WriteArrayHead(int length)
+        {
+           
+        }
     }
 }
