@@ -143,12 +143,12 @@ namespace Swifter.Tools
                     CanAccessNonPublicMembers = false;
                 }
 
-#if DEBUG
+//#if DEBUG
 
-                Console.WriteLine($"{nameof(DynamicAssembly)} : CanAccessNonPublicTypes : {CanAccessNonPublicTypes}");
-                Console.WriteLine($"{nameof(DynamicAssembly)} : CanAccessNonPublicMembers : {CanAccessNonPublicMembers}");
+//                Console.WriteLine($"{nameof(DynamicAssembly)} : CanAccessNonPublicTypes : {CanAccessNonPublicTypes}");
+//                Console.WriteLine($"{nameof(DynamicAssembly)} : CanAccessNonPublicMembers : {CanAccessNonPublicMembers}");
 
-#endif
+//#endif
             }
 
         }

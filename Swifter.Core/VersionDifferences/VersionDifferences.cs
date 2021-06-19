@@ -62,9 +62,9 @@ namespace Swifter
 
                 if (Equals(result, value))
                 {
-#if DEBUG
-                    Console.WriteLine($"{nameof(VersionDifferences)} : {nameof(IsSupportEmit)} : {true}");
-#endif
+//#if DEBUG
+//                    Console.WriteLine($"{nameof(VersionDifferences)} : {nameof(IsSupportEmit)} : {true}");
+//#endif
 
                     return true;
                 }
@@ -73,9 +73,9 @@ namespace Swifter
             {
             }
 
-#if DEBUG
-            Console.WriteLine($"{nameof(VersionDifferences)} : {nameof(IsSupportEmit)} : {false}");
-#endif
+//#if DEBUG
+//            Console.WriteLine($"{nameof(VersionDifferences)} : {nameof(IsSupportEmit)} : {false}");
+//#endif
 
             return false;
         }

@@ -170,9 +170,9 @@ namespace Swifter.RW
                     else
                     {
 
-#if DEBUG
-                        Console.WriteLine($"{nameof(FastProperty)} : \"{typeof(T)}.{GetMethod}\" Use UnsafeCall");
-#endif
+//#if DEBUG
+//                        Console.WriteLine($"{nameof(FastProperty)} : \"{typeof(T)}.{GetMethod}\" Use UnsafeCall");
+//#endif
 
                         ilGen.UnsafeCall(GetMethod);
                     }

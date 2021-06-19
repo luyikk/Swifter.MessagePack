@@ -503,10 +503,10 @@ namespace Swifter.RW
 
                     var isVisible = typeof(T).IsExternalVisible();
 
-#if DEBUG
-                    Console.WriteLine($"{nameof(FastObjectRW)} : \"{typeof(T)}\" IsVisible : {isVisible}");
-                    Console.WriteLine($"{nameof(FastObjectRW)} : \"{typeof(T)}\" IsVisibleTo : {IsVisibleTo}");
-#endif
+//#if DEBUG
+//                    Console.WriteLine($"{nameof(FastObjectRW)} : \"{typeof(T)}\" IsVisible : {isVisible}");
+//                    Console.WriteLine($"{nameof(FastObjectRW)} : \"{typeof(T)}\" IsVisibleTo : {IsVisibleTo}");
+//#endif
 
                     var isCanAccess = isVisible || IsVisibleTo;
 
@@ -524,15 +524,15 @@ namespace Swifter.RW
 
                         var beforeIsVisible = before.IsExternalVisible() || DynamicAssembly.IsInternalsVisibleTo(before.Assembly);
                         var afterIsVisible = after.IsExternalVisible() || DynamicAssembly.IsInternalsVisibleTo(after.Assembly);
-#if DEBUG
-                        Console.WriteLine($"{nameof(FastObjectRW)} : \"{typeof(T)}.{field.Name}\" \t " +
-                            $"CanRead : {field.CanRead}, " +
-                            $"CanWrite : {field.CanWrite}, " +
-                            $"IsPublicGet : {field.IsPublicGet}, " +
-                            $"IsPublicSet : {field.IsPublicSet}, " +
-                            $"BeforeIsVisible : {beforeIsVisible}, " +
-                            $"AfterIsVisible : {afterIsVisible}");
-#endif
+//#if DEBUG
+//                        Console.WriteLine($"{nameof(FastObjectRW)} : \"{typeof(T)}.{field.Name}\" \t " +
+//                            $"CanRead : {field.CanRead}, " +
+//                            $"CanWrite : {field.CanWrite}, " +
+//                            $"IsPublicGet : {field.IsPublicGet}, " +
+//                            $"IsPublicSet : {field.IsPublicSet}, " +
+//                            $"BeforeIsVisible : {beforeIsVisible}, " +
+//                            $"AfterIsVisible : {afterIsVisible}");
+//#endif
                         if (isCanAccess && ((field.CanRead && !field.IsPublicGet) || (field.CanWrite && !field.IsPublicSet)))
                         {
                             isCanAccess = DynamicAssembly.CanAccessNonPublicMembers || IsVisibleTo;
@@ -553,9 +553,9 @@ namespace Swifter.RW
                         }
                     }
 
-#if DEBUG
-                    Console.WriteLine($"{nameof(FastObjectRW)} : \"{typeof(T)}\" IsCanAssess : {isCanAccess}");
-#endif
+//#if DEBUG
+//                    Console.WriteLine($"{nameof(FastObjectRW)} : \"{typeof(T)}\" IsCanAssess : {isCanAccess}");
+//#endif
 
                     Keys = Fields.Select(item => item.Name).ToArray();
 

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>net20;net35;net40;net45;net47;netstandard2.0;netcoreapp2.0;netcoreapp2.1;netcoreapp3.0</TargetFrameworks>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Version>1.5.0</Version>
+    <Version>1.6.1</Version>
     <Authors>luyikk</Authors>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Swifter.MessagePack.xml</DocumentationFile>
     <Description>In order to be compatible with the modified version of RMP
